@@ -1,0 +1,10 @@
+SELECT *, 
+CASE WHEN arrest IS true THEN 'Cleared by Arrest'
+WHEN arrest IS false THEN 'Not Cleared'
+ELSE 'N/A' END as clearance_status,
+EXTRACT(MONTH
+    FROM
+      date) AS month,
+      FROM `chicago_crime_data.crime`
+WHERE unique_key IS NOT NULL
+AND year BETWEEN 2012 AND 2022
